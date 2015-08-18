@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    
+</head>
+
+<body>
+这是母板页内容
+<br/>
+@* 主要部分*@
+@RenderBody()
+<br/>
+<br/>
+@*其他部份内容*@
+@RenderSection("MasterPart", false)
+</body>
+</html>

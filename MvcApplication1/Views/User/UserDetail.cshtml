@@ -1,0 +1,68 @@
+﻿@model MvcApplication1.Models.UserModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用户详细</title>
+</head>
+<body>
+    <div>
+        用户名:@Model.UserName
+    </div>
+    <div>
+        密码：@Model.Password
+    </div>
+    <div>
+        性别：
+        @if (@Model.Sex == 0)
+        {
+            @:男
+            }
+        else
+        {
+            @:女
+                                }
+    </div>
+    <div>
+        年龄：@Model.Age 岁
+    </div>
+    <div>
+        身高：@Model.Height CM
+    </div>
+    <div>
+        体重：@Model.Weight KG
+    </div>
+<div>
+    毕业院校：@Model.Graduated
+</div>
+
+@using(@Html.BeginForm()){
+    <div>
+        用户名：@Html.TextBoxFor(model => model.UserName, new
+            {
+                @style = "width: 200px"
+            })
+    </div>
+    <div>密码：@Html.PasswordFor(model => model.Password)</div>
+    <div>性别：男 @Html.RadioButtonFor(user => user.Sex, 0, new {@name = "sex", @checked = "true"})
+        女 @Html.RadioButtonFor(user => user.Sex, 1, new {@name = "sex"})</div>
+    <div>
+        年龄：@Html.TextBoxFor(user => user.Age) 岁
+    </div>
+    <div>
+        身高：@Html.TextBoxFor(user => user.Height) CM
+    </div>
+    <div>
+        体重：@Html.TextBoxFor(user => user.Weight) KG
+    </div>
+    <div>
+        毕业院校：@Html.TextBoxFor(user => user.Graduated)
+    </div>
+    <div>
+        <input type="submit" value="提交" />
+    </div>
+}
+</body>
+</html>

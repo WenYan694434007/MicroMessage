@@ -1,0 +1,69 @@
+﻿@using System.Web.UI.WebControls
+
+@model MvcApplication1.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@{
+    Layout = null;
+}
+<!--Layout用于母板页的布局，在本系列的第四篇文章中会详细讲解-->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>用户登陆</title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            
+            
+
+        });
+    
+        function GetTime() {
+            $.get("/Validate/GetTime", function (response) {
+                $("#myPnl").html(response);
+            });
+        }
+
+        
+    </script> 
+</head>
+
+<body>
+    <!--Html.BeginForm()等同于在html代码里写<form>.....</form>是一样的-->
+    @using (Html.BeginForm())
+    {
+        <div id="myPnl" style="width: 300px; height: 30px; border: 1px dotted silver;"></div><div><input type="button" value="ajax时间" onclick="GetTime()"/></div>
+        <div>
+            @Html.LabelFor(model=>model.UserName)
+        </div>
+        <div>
+            <!--创建用户名文本框，等同于<input type="text" />-->
+            @Html.TextBoxFor(model=>model.UserName,new{@style="width: 200px;",@PlaceHolder="456"})@Html.ValidationMessageFor(model => model.UserName)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div>
+            <!--创建用户名文本框，等同于<input type="password"/>-->
+            @Html.PasswordFor(model => model.Password, new {@style = "width: 200px"})@Html.ValidationMessageFor(model => model.Password)
+        </div>
+        <br/>
+        <div><img id="valiCode" style="cursor: pointer;" src="/Validate/GetValidateCode" alt="验证码" /> </div>
+        <br/>
+        <div>
+            <input type="submit" value="登录" />
+        </div>
+    }
+
+    @*@Html.ActionLink("链接首页", "Login","User");*@
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+﻿@using MvcApplication1.Models
+@{
+    ViewBag.Title = "UserList";
+}
+
+<h2>UserList</h2>
+@foreach (RegeditModel obj in Model.List)
+{
+    <div>@obj.UserName</div>
+}
+@Html.ActionLink("上一页", "UserList", new { Id = Model.PrevIndex })
+@Model.PageIndex/@Model.PageCount
+@Html.ActionLink("下一页", "UserList", new { Id = Model.NextIndex })
