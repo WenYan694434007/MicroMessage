@@ -65,7 +65,7 @@ namespace MvcApplication1.Controllers
             List<RegeditModel> source = new List<RegeditModel>
             {
                 new RegeditModel {Password = "123456", Age = 10, Sex = 0, UserName = "yanwen1"},
-                new RegeditModel {Password = "123456", Age = 10, Sex = 0, UserName = "yanwen2"},
+                new RegeditModel {Password = "123", Age = 10, Sex = 0, UserName = "yanwen2"},
                 new RegeditModel {Password = "123456", Age = 10, Sex = 0, UserName = "yanwen3"},
                 new RegeditModel {Password = "123456", Age = 10, Sex = 0, UserName = "yanwen4"},
                 new RegeditModel {Password = "123456", Age = 10, Sex = 0, UserName = "yanwen5"},
